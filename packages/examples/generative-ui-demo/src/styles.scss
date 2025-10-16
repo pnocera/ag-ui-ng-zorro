@@ -1,0 +1,55 @@
+/* Import AG-UI theming variables */
+@import '../../../../../ag-ui-workspace/projects/ag-ui/theming/src/lib/variables.scss';
+
+/* Global styles */
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: var(--ag-ui-font-family);
+  font-size: var(--ag-ui-font-size-md);
+  line-height: var(--ag-ui-line-height-base);
+  color: var(--ag-ui-text-color);
+  background-color: var(--ag-ui-background-color);
+}
+
+/* Apply AG-UI theming to all components */
+* {
+  box-sizing: border-box;
+}
+
+/* Generative UI demo specific styles */
+.demo-container {
+  padding: var(--ag-ui-spacing-lg);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.demo-section {
+  margin-bottom: var(--ag-ui-spacing-xl);
+  padding: var(--ag-ui-spacing-lg);
+  border: 1px solid var(--ag-ui-border-color);
+  border-radius: var(--ag-ui-border-radius-base);
+  background-color: var(--ag-ui-background-color-light);
+}
+
+.demo-title {
+  color: var(--ag-ui-primary-color);
+  font-size: var(--ag-ui-font-size-xl);
+  font-weight: var(--ag-ui-font-weight-semibold);
+  margin-bottom: var(--ag-ui-spacing-md);
+}
+
+/* Dynamic form styling */
+.dynamic-form-container {
+  background-color: var(--ag-ui-background-color);
+  padding: var(--ag-ui-spacing-lg);
+  border-radius: var(--ag-ui-border-radius-base);
+  box-shadow: var(--ag-ui-shadow-sm);
+}
+
+/* Dark theme support */
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+}

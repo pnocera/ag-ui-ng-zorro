@@ -1,0 +1,30 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "./",
+    "target": "ES2022",
+    "lib": ["ES2022", "dom"],
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "strict": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "declaration": false,
+    "sourceMap": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "paths": {
+      "@ag-ui/core": ["./packages/angular-workspace/projects/core/src/index.ts"],
+      "@ag-ui/ng-zorro": ["./packages/angular-workspace/projects/ag-ui-ng-zorro/src/index.ts"],
+      "@ag-ui/theming": ["./packages/angular-workspace/projects/theming/src/index.ts"],
+      "@ag-ui/schematics": ["./packages/angular-workspace/projects/schematics/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "dist"]
+}

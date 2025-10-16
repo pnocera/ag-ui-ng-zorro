@@ -1,0 +1,37 @@
+/* Import AG-UI theming variables */
+@import '../../../../../ag-ui-workspace/projects/ag-ui/theming/src/lib/variables.scss';
+
+/* Global styles */
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: var(--ag-ui-font-family);
+  font-size: var(--ag-ui-font-size-md);
+  line-height: var(--ag-ui-line-height-base);
+  color: var(--ag-ui-text-color);
+  background-color: var(--ag-ui-background-color);
+}
+
+/* Apply AG-UI theming to all components */
+* {
+  box-sizing: border-box;
+}
+
+/* Chat-specific global styles */
+.chat-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.message-content {
+  word-wrap: break-word;
+  white-space: pre-wrap;
+}
+
+/* Dark theme support */
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+}

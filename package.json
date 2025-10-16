@@ -1,0 +1,60 @@
+{
+  "name": "ag-ui-ng-zorro-monorepo",
+  "version": "1.0.0",
+  "description": "Angular 20 + AG-UI + NG-ZORRO Library Monorepo with PNPM Workspace",
+  "type": "module",
+  "private": true,
+  "workspaces": [
+    "packages/**",
+    "packages/angular-workspace/projects/**"
+  ],
+  "scripts": {
+    "lint": "eslint . --ext .ts,.js,.html --fix",
+    "lint:check": "eslint . --ext .ts,.js,.html",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "pnpm -r --stream test",
+    "test:watch": "pnpm -r --stream test:watch",
+    "test:coverage": "pnpm -r --stream test:coverage",
+    "test:ci": "pnpm -r --stream test:ci",
+    "test:unit": "pnpm -r --stream test",
+    "test:e2e": "echo \"E2E tests not yet configured\" && exit 0",
+    "test:core": "pnpm --filter @ag-ui/core test",
+    "test:ng-zorro": "pnpm --filter @ag-ui/ng-zorro test",
+    "test:theming": "pnpm --filter @ag-ui/theming test",
+    "test:schematics": "pnpm --filter @ag-ui/schematics test",
+    "build": "pnpm -r --stream build",
+    "build:core": "pnpm --filter @ag-ui/core build",
+    "build:ng-zorro": "pnpm --filter @ag-ui/ng-zorro build",
+    "build:theming": "pnpm --filter @ag-ui/theming build",
+    "build:schematics": "pnpm --filter @ag-ui/schematics build",
+    "dev": "pnpm -r --stream --parallel test:watch",
+    "clean": "pnpm -r exec rimraf dist",
+    "postinstall": "pnpm -r exec node -e \"process.exit(0)\""
+  },
+  "devDependencies": {
+    "@angular-eslint/builder": "^20.4.0",
+    "@angular-eslint/eslint-plugin": "^20.4.0",
+    "@angular-eslint/eslint-plugin-template": "^20.4.0",
+    "@angular-eslint/schematics": "^20.4.0",
+    "@angular-eslint/template-parser": "^20.4.0",
+    "@angular/cli": "^20.3.6",
+    "@angular/compiler-cli": "^20.3.5",
+    "@typescript-eslint/eslint-plugin": "^8.46.1",
+    "@typescript-eslint/parser": "^8.46.1",
+    "eslint": "^9.37.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-json": "^4.0.1",
+    "eslint-plugin-prettier": "^5.5.4",
+    "jsonc-eslint-parser": "^2.4.1",
+    "prettier": "^3.6.2",
+    "rimraf": "^6.0.1",
+    "typescript": "~5.9.3"
+  },
+  "engines": {
+    "node": ">=18.13.0",
+    "pnpm": ">=8.0.0"
+  },
+  "packageManager": "pnpm@10.18.3"
+}

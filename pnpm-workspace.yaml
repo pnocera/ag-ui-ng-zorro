@@ -1,0 +1,11 @@
+packages:
+  - 'packages/**'
+  - '!**/dist/**'
+
+onlyBuiltDependencies:
+  - '@parcel/watcher'
+  - esbuild
+  - lmdb
+  - msgpackr-extract
+  - nice-napi
+  - unrs-resolver
