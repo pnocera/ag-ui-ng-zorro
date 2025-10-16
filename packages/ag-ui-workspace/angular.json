@@ -1,0 +1,115 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "@ag-ui/ng-zorro": {
+      "projectType": "library",
+      "root": "projects/ag-ui/ng-zorro",
+      "sourceRoot": "projects/ag-ui/ng-zorro/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:ng-packagr",
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ag-ui/ng-zorro/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/ag-ui/ng-zorro/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular/build:karma",
+          "options": {
+            "tsConfig": "projects/ag-ui/ng-zorro/tsconfig.spec.json",
+            "polyfills": ["zone.js", "zone.js/testing"]
+          }
+        }
+      }
+    },
+    "@ag-ui/core": {
+      "projectType": "library",
+      "root": "projects/ag-ui/core",
+      "sourceRoot": "projects/ag-ui/core/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:ng-packagr",
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ag-ui/core/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/ag-ui/core/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular/build:karma",
+          "options": {
+            "tsConfig": "projects/ag-ui/core/tsconfig.spec.json",
+            "polyfills": ["zone.js", "zone.js/testing"]
+          }
+        }
+      }
+    },
+    "@ag-ui/theming": {
+      "projectType": "library",
+      "root": "projects/ag-ui/theming",
+      "sourceRoot": "projects/ag-ui/theming/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:ng-packagr",
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ag-ui/theming/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/ag-ui/theming/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular/build:karma",
+          "options": {
+            "tsConfig": "projects/ag-ui/theming/tsconfig.spec.json",
+            "polyfills": ["zone.js", "zone.js/testing"]
+          }
+        }
+      }
+    },
+    "@ag-ui/schematics": {
+      "projectType": "library",
+      "root": "projects/ag-ui/schematics",
+      "sourceRoot": "projects/ag-ui/schematics/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:ng-packagr",
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ag-ui/schematics/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/ag-ui/schematics/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular/build:karma",
+          "options": {
+            "tsConfig": "projects/ag-ui/schematics/tsconfig.spec.json",
+            "polyfills": ["zone.js", "zone.js/testing"]
+          }
+        }
+      }
+    }
+  }
+}

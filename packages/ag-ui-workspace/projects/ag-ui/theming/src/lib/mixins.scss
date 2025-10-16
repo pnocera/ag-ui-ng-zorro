@@ -1,0 +1,74 @@
+// AG-UI Theming Mixins
+
+// Mixin for creating theme-aware components
+@mixin ag-ui-theme($property, $variable) {
+  #{$property}: var(#{$variable});
+}
+
+// Mixin for agent message styling
+@mixin agent-message($agent-type: 'user') {
+  padding: var(--ag-ui-spacing-sm) var(--ag-ui-spacing-md);
+  border-radius: var(--ag-ui-border-radius-base);
+  margin-bottom: var(--ag-ui-spacing-sm);
+  
+  @if $agent-type == 'user' {
+    background-color: var(--ag-ui-agent-user-bg);
+    color: var(--ag-ui-agent-user-text);
+    margin-left: var(--ag-ui-spacing-xl);
+    margin-right: 0;
+  } @else if $agent-type == 'agent' {
+    background-color: var(--ag-ui-agent-agent-bg);
+    color: var(--ag-ui-agent-agent-text);
+    margin-left: 0;
+    margin-right: var(--ag-ui-spacing-xl);
+  } @else if $agent-type == 'system' {
+    background-color: var(--ag-ui-agent-system-bg);
+    color: var(--ag-ui-agent-system-text);
+    margin-left: 0;
+    margin-right: 0;
+  } @else if $agent-type == 'error' {
+    background-color: var(--ag-ui-agent-error-bg);
+    color: var(--ag-ui-agent-error-text);
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+// Mixin for responsive design
+@mixin ag-ui-responsive($breakpoint) {
+  @if $breakpoint == 'xs' {
+    @media (max-width: 575px) { @content; }
+  } @else if $breakpoint == 'sm' {
+    @media (max-width: 768px) { @content; }
+  } @else if $breakpoint == 'md' {
+    @media (max-width: 992px) { @content; }
+  } @else if $breakpoint == 'lg' {
+    @media (max-width: 1200px) { @content; }
+  } @else if $breakpoint == 'xl' {
+    @media (max-width: 1600px) { @content; }
+  }
+}
+
+// Mixin for focus states
+@mixin ag-ui-focus($color: var(--ag-ui-primary-color)) {
+  &:focus {
+    outline: 2px solid $color;
+    outline-offset: 2px;
+  }
+  
+  &:focus-visible {
+    outline: 2px solid $color;
+    outline-offset: 2px;
+  }
+}
+
+// Mixin for disabled states
+@mixin ag-ui-disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
+  
+  &:focus {
+    outline: none;
+  }
+}

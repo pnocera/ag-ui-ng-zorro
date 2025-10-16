@@ -1,0 +1,117 @@
+// AG-UI Theming CSS Variables
+// These variables can be overridden by consumers for custom themes
+
+// Primary Colors
+:root {
+  --ag-ui-primary-color: #1890ff;
+  --ag-ui-primary-color-hover: #40a9ff;
+  --ag-ui-primary-color-active: #096dd9;
+  --ag-ui-primary-color-bg: #e6f7ff;
+  --ag-ui-primary-color-border: #91d5ff;
+  
+  // Secondary Colors
+  --ag-ui-secondary-color: #722ed1;
+  --ag-ui-secondary-color-hover: #9254de;
+  --ag-ui-secondary-color-active: #531dab;
+  --ag-ui-secondary-color-bg: #f9f0ff;
+  --ag-ui-secondary-color-border: #d3adf7;
+  
+  // Success Colors
+  --ag-ui-success-color: #52c41a;
+  --ag-ui-success-color-hover: #73d13d;
+  --ag-ui-success-color-active: #389e0d;
+  --ag-ui-success-color-bg: #f6ffed;
+  --ag-ui-success-color-border: #b7eb8f;
+  
+  // Warning Colors
+  --ag-ui-warning-color: #faad14;
+  --ag-ui-warning-color-hover: #ffc53d;
+  --ag-ui-warning-color-active: #d48806;
+  --ag-ui-warning-color-bg: #fffbe6;
+  --ag-ui-warning-color-border: #ffe58f;
+  
+  // Error Colors
+  --ag-ui-error-color: #ff4d4f;
+  --ag-ui-error-color-hover: #ff7875;
+  --ag-ui-error-color-active: #d9363e;
+  --ag-ui-error-color-bg: #fff2f0;
+  --ag-ui-error-color-border: #ffccc7;
+  
+  // Neutral Colors
+  --ag-ui-text-color: rgba(0, 0, 0, 0.85);
+  --ag-ui-text-color-secondary: rgba(0, 0, 0, 0.65);
+  --ag-ui-text-color-disabled: rgba(0, 0, 0, 0.25);
+  --ag-ui-border-color: #d9d9d9;
+  --ag-ui-border-color-split: #f0f0f0;
+  --ag-ui-background-color: #ffffff;
+  --ag-ui-background-color-light: #fafafa;
+  
+  // Agent-Specific Colors
+  --ag-ui-agent-user-bg: #e6f7ff;
+  --ag-ui-agent-user-text: #1890ff;
+  --ag-ui-agent-agent-bg: #f6ffed;
+  --ag-ui-agent-agent-text: #52c41a;
+  --ag-ui-agent-system-bg: #fffbe6;
+  --ag-ui-agent-system-text: #faad14;
+  --ag-ui-agent-error-bg: #fff2f0;
+  --ag-ui-agent-error-text: #ff4d4f;
+  
+  // Spacing
+  --ag-ui-spacing-xs: 4px;
+  --ag-ui-spacing-sm: 8px;
+  --ag-ui-spacing-md: 16px;
+  --ag-ui-spacing-lg: 24px;
+  --ag-ui-spacing-xl: 32px;
+  --ag-ui-spacing-xxl: 48px;
+  
+  // Typography
+  --ag-ui-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --ag-ui-font-size-xs: 12px;
+  --ag-ui-font-size-sm: 14px;
+  --ag-ui-font-size-md: 16px;
+  --ag-ui-font-size-lg: 18px;
+  --ag-ui-font-size-xl: 20px;
+  --ag-ui-font-size-xxl: 24px;
+  --ag-ui-font-weight-normal: 400;
+  --ag-ui-font-weight-medium: 500;
+  --ag-ui-font-weight-semibold: 600;
+  --ag-ui-font-weight-bold: 700;
+  --ag-ui-line-height-base: 1.5;
+  --ag-ui-line-height-sm: 1.2;
+  --ag-ui-line-height-lg: 1.8;
+  
+  // Border Radius
+  --ag-ui-border-radius-sm: 2px;
+  --ag-ui-border-radius-base: 6px;
+  --ag-ui-border-radius-lg: 8px;
+  
+  // Shadows
+  --ag-ui-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05), 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  --ag-ui-shadow-base: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --ag-ui-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --ag-ui-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  
+  // Transitions
+  --ag-ui-transition-base: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  --ag-ui-transition-fast: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+  
+  // Z-Index
+  --ag-ui-z-index-dropdown: 1050;
+  --ag-ui-z-index-sticky: 1020;
+  --ag-ui-z-index-fixed: 1030;
+  --ag-ui-z-index-modal-backdrop: 1040;
+  --ag-ui-z-index-modal: 1050;
+  --ag-ui-z-index-popover: 1060;
+  --ag-ui-z-index-tooltip: 1070;
+}
+
+// Dark theme overrides
+[data-theme='dark'] {
+  --ag-ui-text-color: rgba(255, 255, 255, 0.85);
+  --ag-ui-text-color-secondary: rgba(255, 255, 255, 0.65);
+  --ag-ui-text-color-disabled: rgba(255, 255, 255, 0.25);
+  --ag-ui-border-color: #434343;
+  --ag-ui-border-color-split: #303030;
+  --ag-ui-background-color: #141414;
+  --ag-ui-background-color-light: #1f1f1f;
+}

@@ -1,0 +1,66 @@
+/* To learn more about Typescript configuration file: https://www.typescriptlang.org/docs/handbook/tsconfig-json.html. */
+/* To learn more about Angular compiler options: https://angular.dev/reference/configs/angular-compiler-options. */
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "paths": {
+      "@ag-ui/core": [
+        "./dist/ag-ui/core"
+      ],
+      "@ag-ui/ng-zorro": [
+        "./dist/ag-ui/ng-zorro"
+      ],
+      "@ag-ui/schematics": [
+        "./dist/ag-ui/schematics"
+      ],
+      "@ag-ui/theming": [
+        "./dist/ag-ui/theming"
+      ]
+    },
+    "strict": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "skipLibCheck": true,
+    "isolatedModules": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "ES2022",
+    "module": "preserve"
+  },
+  "angularCompilerOptions": {
+    "enableI18nLegacyMessageIdFormat": false,
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "typeCheckHostBindings": true,
+    "strictTemplates": true
+  },
+  "files": [],
+  "references": [
+    {
+      "path": "./projects/ag-ui/ng-zorro/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/ag-ui/ng-zorro/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/ag-ui/core/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/ag-ui/core/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/ag-ui/theming/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/ag-ui/theming/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/ag-ui/schematics/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/ag-ui/schematics/tsconfig.spec.json"
+    }
+  ]
+}
