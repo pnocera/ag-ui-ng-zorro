@@ -1,15 +1,10 @@
-import { Component } from '@angular/core';
+/*
+ * Core library exports
+ * This file re-exports all public APIs for the core library
+ */
 
-@Component({
-  selector: 'lib-core',
-  imports: [],
-  template: `
-    <p>
-      core works!
-    </p>
-  `,
-  styles: ``
-})
-export class Core {
+// Re-export types and interfaces
+export * from './types';
 
-}
+// Re-export services
+export * from './services';

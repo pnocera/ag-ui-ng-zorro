@@ -1,0 +1,77 @@
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.app-header {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  
+  h1 {
+    margin: 0 0 8px 0;
+    color: #262626;
+    font-size: 24px;
+    font-weight: 600;
+  }
+  
+  p {
+    margin: 0;
+    color: #8c8c8c;
+    font-size: 14px;
+  }
+}
+
+.app-main {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.chat-container {
+  width: 100%;
+  max-width: 800px;
+  height: 600px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  overflow: hidden;
+}
+
+.app-footer {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 16px;
+  text-align: center;
+  
+  p {
+    margin: 0;
+    color: #8c8c8c;
+    font-size: 12px;
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .app-header {
+    padding: 16px;
+    
+    h1 {
+      font-size: 20px;
+    }
+  }
+  
+  .app-main {
+    padding: 16px;
+  }
+  
+  .chat-container {
+    height: 500px;
+    border-radius: 8px;
+  }
+}

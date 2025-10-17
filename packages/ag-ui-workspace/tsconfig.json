@@ -5,16 +5,16 @@
   "compilerOptions": {
     "paths": {
       "@ag-ui/core": [
-        "./dist/ag-ui/core"
+        "./projects/ag-ui/core/src/public-api"
       ],
       "@ag-ui/ng-zorro": [
-        "./dist/ag-ui/ng-zorro"
+        "./projects/ag-ui/ng-zorro/src/public-api"
       ],
       "@ag-ui/schematics": [
-        "./dist/ag-ui/schematics"
+        "./projects/ag-ui/schematics/src/public-api"
       ],
       "@ag-ui/theming": [
-        "./dist/ag-ui/theming"
+        "./projects/ag-ui/theming/src/public-api"
       ]
     },
     "strict": true,

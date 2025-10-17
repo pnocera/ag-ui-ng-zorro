@@ -1,23 +1,7 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { Core } from './core';
-
-describe('Core', () => {
-  let component: Core;
-  let fixture: ComponentFixture<Core>;
-
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [Core]
-    })
-    .compileComponents();
-
-    fixture = TestBed.createComponent(Core);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+// Core library tests are located in the types/ and services/ subdirectories
+// This file is kept for compatibility but the actual tests are in:
+// - types/events.spec.ts
+// - types/abstract-agent.spec.ts
+// - services/http-agent.service.spec.ts
+// - services/agent-state.service.spec.ts
+// - services/websocket.service.spec.ts

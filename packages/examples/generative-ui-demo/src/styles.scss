@@ -1,5 +1,11 @@
-/* Import AG-UI theming variables */
-@import '../../../../../ag-ui-workspace/projects/ag-ui/theming/src/lib/variables.scss';
+/* Basic theming variables fallback */
+:root {
+  --ag-ui-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --ag-ui-font-size-md: 14px;
+  --ag-ui-line-height-base: 1.5;
+  --ag-ui-text-color: #262626;
+  --ag-ui-background-color: #ffffff;
+}
 
 /* Global styles */
 html, body {
