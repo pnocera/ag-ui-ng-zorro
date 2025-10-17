@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
 import { AgChatComponent } from '@ag-ui/ng-zorro';
 import { AgentStateService } from '@ag-ui/core';
 import { MockAgentService } from './services/mock-agent.service';
@@ -10,7 +9,6 @@ import { MockAgentService } from './services/mock-agent.service';
   standalone: true,
   imports: [
     CommonModule,
-    RouterOutlet,
     AgChatComponent
   ],
   providers: [

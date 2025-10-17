@@ -10,6 +10,7 @@ import { NzListModule } from 'ng-zorro-antd/list';
 import { NzBadgeModule } from 'ng-zorro-antd/badge';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NgIf } from '@angular/common';
+import { NgScrollbarModule, NgScrollbar } from 'ngx-scrollbar';
 
 export interface AgChatConfig {
   agentName?: string;
@@ -24,13 +25,14 @@ export interface AgChatConfig {
   selector: 'ag-chat',
   standalone: true,
   imports: [
-    MessageComponent, 
+    MessageComponent,
     ChatInputComponent,
     NzCardModule,
     NzListModule,
     NzBadgeModule,
     NzIconModule,
-    NgIf
+    NgIf,
+    NgScrollbarModule
   ],
   template: `
     <div class="ag-chat">
@@ -56,13 +58,16 @@ export interface AgChatConfig {
         </div>
 
         <!-- Messages Container -->
-        <div class="ag-chat__messages-container" #messagesContainer>
+        <ng-scrollbar
+          class="ag-chat__messages-container"
+          [visibility]="'hover'"
+          #messagesContainer>
           <nz-list
             [nzDataSource]="messages()"
             [nzRenderItem]="messageTemplate"
             [nzLoading]="loading"
             class="ag-chat__messages-list">
-            
+
             <ng-template #messageTemplate let-message>
               <ag-message
                 [message]="message"
@@ -72,22 +77,22 @@ export interface AgChatConfig {
                 class="ag-chat__message">
               </ag-message>
             </ng-template>
-            
+
             <nz-list-empty *ngIf="messages().length === 0 && !loading">
               {{ emptyMessage }}
             </nz-list-empty>
           </nz-list>
-        </div>
-
-        <!-- Chat Input -->
-        <ag-chat-input
-          [state]="inputState"
-          [placeholder]="config.placeholder || 'Type your message...'"
-          [showHelpText]="config.showHelpText ?? true"
-          (messageSent)="onMessageSent($event)"
-          class="ag-chat__input">
-        </ag-chat-input>
+        </ng-scrollbar>
       </nz-card>
+
+      <!-- Chat Input - Fixed at bottom -->
+      <ag-chat-input
+        [state]="inputState"
+        [placeholder]="config.placeholder || 'Type your message...'"
+        [showHelpText]="config.showHelpText ?? true"
+        (messageSent)="onMessageSent($event)"
+        class="ag-chat__input">
+      </ag-chat-input>
     </div>
   `,
   styles: [`
@@ -99,6 +104,7 @@ export interface AgChatConfig {
       border-radius: 8px;
       overflow: hidden;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+      position: relative;
     }
 
     .ag-chat__card {
@@ -114,6 +120,7 @@ export interface AgChatConfig {
       padding: 16px 20px;
       border-bottom: 1px solid #f0f0f0;
       background: #fafafa;
+      flex-shrink: 0;
     }
 
     .ag-chat__title {
@@ -139,14 +146,14 @@ export interface AgChatConfig {
 
     .ag-chat__messages-container {
       flex: 1;
-      overflow-y: auto;
-      scroll-behavior: smooth;
       background: #fff;
+      min-height: 0;
+      max-height: calc(100% - 120px); /* Account for fixed input height */
+      overflow: hidden;
     }
 
     .ag-chat__messages-list {
-      padding: 16px 20px;
-      min-height: 100%;
+      padding: 16px 20px 100px 20px;
     }
 
     .ag-chat__message {
@@ -158,25 +165,13 @@ export interface AgChatConfig {
     }
 
     .ag-chat__input {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
       border-top: 1px solid #f0f0f0;
-    }
-
-    /* Scrollbar styling */
-    .ag-chat__messages-container::-webkit-scrollbar {
-      width: 6px;
-    }
-
-    .ag-chat__messages-container::-webkit-scrollbar-track {
-      background: #f1f1f1;
-    }
-
-    .ag-chat__messages-container::-webkit-scrollbar-thumb {
-      background: #c1c1c1;
-      border-radius: 3px;
-    }
-
-    .ag-chat__messages-container::-webkit-scrollbar-thumb:hover {
-      background: #a8a8a8;
+      background: #fff;
+      z-index: 10;
     }
 
     /* Loading animation */
@@ -214,7 +209,8 @@ export class AgChatComponent implements OnInit, AfterViewInit, OnDestroy {
   @Output() messageSent = new EventEmitter<string>();
   @Output() chatCleared = new EventEmitter<void>();
 
-  @ViewChild('messagesContainer') messagesContainer!: ElementRef;
+  @ViewChild('messagesContainer') messagesContainer!: NgScrollbar;
+  @ViewChild(ChatInputComponent) chatInputComponent!: ChatInputComponent;
 
   private destroy$ = new Subject<void>();
 
@@ -250,9 +246,14 @@ agentState: Signal<AgentState | undefined>;
     // Subscribe to state changes
     this.agentStateService.stateChanges$
       .pipe(takeUntil(this.destroy$))
-      .subscribe(() => {
+      .subscribe((state) => {
         // Auto-scroll to bottom when new messages arrive
         setTimeout(() => this.scrollToBottom(), 100);
+
+        // Refocus input when agent finishes responding
+        if (state?.status === 'connected' && !this.loading) {
+          setTimeout(() => this.focusInput(), 150);
+        }
       });
   }
 
@@ -323,20 +324,29 @@ agentState: Signal<AgentState | undefined>;
   }
 
   scrollToBottom(): void {
-    if (this.messagesContainer?.nativeElement) {
-      const container = this.messagesContainer.nativeElement;
-      container.scrollTop = container.scrollHeight;
+    if (this.messagesContainer) {
+      this.messagesContainer.scrollTo({
+        top: 999999,
+        duration: 300
+      });
     }
   }
 
   scrollToTop(): void {
-    if (this.messagesContainer?.nativeElement) {
-      const container = this.messagesContainer.nativeElement;
-      container.scrollTop = 0;
+    if (this.messagesContainer) {
+      this.messagesContainer.scrollTo({
+        top: 0,
+        duration: 300
+      });
     }
   }
 
   focusInput(): void {
-    // This would need to be implemented if we add a reference to the input component
+    if (this.chatInputComponent) {
+      // Use setTimeout to ensure the input is ready to be focused
+      setTimeout(() => {
+        this.chatInputComponent.focusInput();
+      }, 0);
+    }
   }
 }

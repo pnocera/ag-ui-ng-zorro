@@ -72,15 +72,21 @@ export interface MessageState {
 
     .ag-message--user .ag-message__avatar {
       margin-left: 0;
+      margin-right: 16px;
     }
 
     .ag-message--agent .ag-message__avatar {
       margin-right: 0;
+      margin-left: 0;
     }
 
     .ag-message__content {
       flex: 1;
       min-width: 0;
+    }
+
+    .ag-message--agent .ag-message__content {
+      margin-left: 16px;
     }
 
     .ag-message__header {

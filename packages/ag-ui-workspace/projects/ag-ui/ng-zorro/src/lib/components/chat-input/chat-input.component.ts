@@ -25,6 +25,7 @@ export interface ChatInputState {
             [disabled]="state.disabled"
             [placeholder]="placeholder"
             [(ngModel)]="message"
+            name="message"
             (ngModelChange)="onInputChange()"
             (keydown)="onKeyDown($event)"
             class="ag-chat-input__textarea"
